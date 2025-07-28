@@ -1,9 +1,10 @@
 import Link from "next/link";
+import BackButton from "@/app/components/BackButton";
 
 export default function contactPage() {
     return (
         <main data-testid="contact-page" className="h-screen w-screen grid place-items-center relative">
-            <Link href="/" className="absolute top-5 left-5 border-b-2 border-r-2 px-4 py-5">Back</Link>
+            <BackButton />
             <form data-testid="contact-form" action="" className="w-1/3 py-5 px-4 flex flex-col flex-nowrap gap-6 border-8 border-black">
                 <h1 className="text-center text-6xl">Contact Me</h1>
 

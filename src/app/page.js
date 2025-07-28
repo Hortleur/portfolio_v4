@@ -28,19 +28,29 @@ export default function Home() {
   return (
 
     <div className="lg:grid grid-cols-3 grid-rows-3 place-items-center relative min-h-screen hidden">
-        {/*<ArtDecoCorner  classes="top-0 left-0 absolute rotate-180" width="240" height="240"/>
-        <ArtDecoCorner  classes="top-0 right-0 absolute rotate-270" width="240" height="240"/>
-        <ArtDecoCorner  classes="bottom-0 left-0 absolute rotate-90" width="240" height="240"/>
-        <ArtDecoCorner  classes="bottom-0 right-0 absolute" width="240" height="240"/>
-        <div className={`w-full h-full hover:bg-[url('/images/clouds.svg')] bg-cover row-start-1 row-end-2 col-start-1 col-end-2`}></div>
-        <div className="w-full h-full hover:bg-[url('/images/clouds.svg')] bg-cover row-start-1 row-end-2 col-start-3 col-end-4"></div>
-        <div className="w-full h-full hover:bg-[url('/images/clouds.svg')] bg-cover row-start-3 row-end-4 col-start-1 col-end-2"></div>
-        <div className="w-full h-full hover:bg-[url('/images/clouds.svg')] bg-cover row-start-3 row-end-4 col-start-3 col-end-4"></div>*/}
+        <HomeLink
+            name="Tech&Tools"
+            classes="row-start-1 row-end-2 col-start-2 col-end-3 border-progress-bottom-right"
+            target="/techs"
+        />
 
-        <HomeLink name="Tech&Tools" classes="row-start-1 row-end-2 col-start-2 col-end-3 hover:border-r-2 hover:border-b-2" target="/techs" />
-        <HomeLink target="/projects" name="Projects" classes="row-start-2 row-end-3 col-start-3 col-end-4 hover:border-l-2 hover:border-b-2"/>
-        <HomeLink target="/contact" name="Contact" classes="row-start-2 row-end-3 col-start-1 col-end-2 hover:border-r-2 hover:border-t-2"/>
-        <HomeLink target="/about" name="About" classes=" row-start-3 row-end-4 col-start-2 col-end-3   hover:border-l-2 hover:border-t-2 "/>
+        <HomeLink
+            target="/projects"
+            name="Projects"
+            classes="row-start-2 row-end-3 col-start-3 col-end-4 border-progress-bottom-left"
+        />
+
+        <HomeLink
+            target="/contact"
+            name="Contact"
+            classes="row-start-2 row-end-3 col-start-1 col-end-2 border-progress-top-right"
+        />
+
+        <HomeLink
+            target="/about"
+            name="About"
+            classes="row-start-3 row-end-4 col-start-2 col-end-3 border-progress-top-left"
+        />
 
         <Name name={name} title={job} />
 

@@ -23,3 +23,149 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Bas + droite : anime depuis bottom-right */
+.border-progress-bottom-right {
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+.border-progress-bottom-right::before, .border-progress-bottom-right::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+}
+/* Bordure du bas, part du coin droit vers la gauche */
+.border-progress-bottom-right::before {
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+.border-progress-bottom-right:hover::before {
+  transform: scaleX(1);
+}
+/* Bordure de droite, part du bas et monte */
+.border-progress-bottom-right::after {
+  width: 2px;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+.border-progress-bottom-right:hover::after {
+  transform: scaleY(1);
+}
+
+/* Bas + gauche : anime depuis bottom-left */
+.border-progress-bottom-left {
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+.border-progress-bottom-left::before, .border-progress-bottom-left::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+}
+.border-progress-bottom-left::before {
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.border-progress-bottom-left:hover::before {
+  transform: scaleX(1);
+}
+.border-progress-bottom-left::after {
+  width: 2px;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+.border-progress-bottom-left:hover::after {
+  transform: scaleY(1);
+}
+
+/* Haut + droite : anime depuis top-right */
+.border-progress-top-right {
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+.border-progress-top-right::before, .border-progress-top-right::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+}
+.border-progress-top-right::before {
+  height: 2px;
+  width: 100%;
+  top: 0;
+  right: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+.border-progress-top-right:hover::before {
+  transform: scaleX(1);
+}
+.border-progress-top-right::after {
+  width: 2px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.border-progress-top-right:hover::after {
+  transform: scaleY(1);
+}
+
+/* Haut + gauche : anime depuis top-left */
+.border-progress-top-left {
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+.border-progress-top-left::before, .border-progress-top-left::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+}
+.border-progress-top-left::before {
+  height: 2px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.border-progress-top-left:hover::before {
+  transform: scaleX(1);
+}
+.border-progress-top-left::after {
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.border-progress-top-left:hover::after {
+  transform: scaleY(1);
+}

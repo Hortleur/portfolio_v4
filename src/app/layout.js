@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className="h-screen w-screen overflow-hidden">
+    <html lang="fr" className="h-screen w-screen overflow-y-scroll">
       <body className={staatliches.className}>
         {children}
       </body>

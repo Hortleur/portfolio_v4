@@ -3,6 +3,7 @@
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import BackButton from "@/app/components/BackButton";
 
 export default function TechsPage() {
     // États pour les données, chargement et erreur
@@ -33,7 +34,7 @@ export default function TechsPage() {
             });
     }, []); // <-- IMPORTANT : tableau de dépendances vide pour exécuter qu’une fois
     // Affichage dans le rendu
-    if (loading) return <p>Chargement en cours...</p>;
+    if (loading) return <main className={"h-screen w-screen grid place-items-center"}><p>Loading...</p></main> ;
     if (error) return <p>Erreur : {error.message}</p>;
 
 
@@ -45,7 +46,7 @@ export default function TechsPage() {
 
     return (
         <main className="h-screen w-screen grid place-items-center grid-cols-5 grid-flow-row">
-            <Link href="/" className="absolute top-5 left-5 border-b-2 border-r-2 px-4 py-5 z-20">Back</Link>
+            <BackButton />
             {data && data.technos && data.technos.map((tech, index) => (
                 <div
                     key={index}
