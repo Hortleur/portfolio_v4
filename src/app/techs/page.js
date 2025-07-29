@@ -3,7 +3,6 @@
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import BackButton from "@/app/components/BackButton";
 
 export default function TechsPage() {
     // États pour les données, chargement et erreur
@@ -39,19 +38,19 @@ export default function TechsPage() {
 
 
     const defineRandomBorders = () => {
-        let borders = ["hover:border-r-2 hover:border-b-2", "hover:border-t-2 hover:border-b-2", "hover:border-l-2 hover:border-b-2", "hover:border-l-2 hover:border-r-2"]
+        let borders = ["hover:border-r-2 hover:border-b-2", "hover:border-t-2 hover:border-b-2", "hover:border-l-2 hover:border-b-2", "hover:border-l-2 hover:border-r-2", "hover:border-t-2 hover:border-r-2", "hover:border-t-2 hover:border-l-2"]
         let random = Math.floor(Math.random() * borders.length);
         setBorder(borders[random])
     }
 
     return (
-        <main className="h-screen w-screen grid place-items-center grid-cols-5 grid-flow-row">
-            <BackButton />
+        <main className="pt-4 pb-32 lg:h-screen lg:pb-0 w-screen gap-5 grid place-items-center grid-cols-2 lg:grid-cols-5 grid-flow-row">
+            <Link href="/" className="hidden lg:block lg:top-5 lg:left-5 border-b-2 border-r-2 px-4 py-5 z-20">Back</Link>
             {data && data.technos && data.technos.map((tech, index) => (
                 <div
                     key={index}
                     onMouseEnter={() => defineRandomBorders()} // exemple
-                    className={`h-full w-full flex flex-col justify-center items-center grayscale hover:grayscale-0 hover:scale-110 transition-all ${border} hover:shadow-inner`}
+                    className={`h-full w-full flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 hover:scale-110 transition-all ${border} hover:shadow-inner `}
                 >
                     <Icon icon={tech.icon} className="text-6xl" />
                     <p className="text-2xl">{tech.name}</p>
