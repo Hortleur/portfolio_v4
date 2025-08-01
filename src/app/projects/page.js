@@ -72,7 +72,7 @@ export default function ProjectsPage() {
             <BackButton />
             <h1 className="text-8xl text-center border-b-4 border-black py-4">Projects</h1>
 
-            <div className="w-full grid grid-flow-col place-items-center h-full overflow-y-scroll py-10 gap-6">
+            <div className="w-full grid grid-flow-col lg:grid-cols-3 place-items-center h-full overflow-y-scroll py-10 gap-6">
                 {data?.projects?.map(proj => (
                     <div
                         key={proj.id}
@@ -95,7 +95,7 @@ export default function ProjectsPage() {
                     ref={dialogRef}
                     className="p-6 flex flex-col flex-nowrap gap-5 border border-black w-11/12 mx-auto border-b-2 border-r-2"
                 >
-                    {loadingProject && <p>Chargement du projet...</p>}
+                    {loadingProject && <p> <Icon icon={"streamline-ultimate:loading"} /> loading...</p>}
 
                     {!loadingProject && project && (
                         <>

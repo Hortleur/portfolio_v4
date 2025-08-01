@@ -1,6 +1,18 @@
 @import "tailwindcss";
 
+@theme inline {
+  --font-staatliches: var(--font-staatliches);
+  --font-exo: var(--font-exo);
 
+}
+
+h1, h2, h3, h4, h5, h6, .titles {
+  @apply font-staatliches;
+}
+
+body{
+  @apply font-exo;
+}
 
 /* Bas + droite : anime depuis bottom-right */
 .border-progress-bottom-right {
