@@ -11,13 +11,15 @@ export default function ProjectsPage() {
     const [loadingProjects, setLoadingProjects] = useState(true);
     const [loadingProject, setLoadingProject] = useState(false);
     const [error, setError] = useState(null);
+    const [count , setCount] = useState(0);
     const dialogRef = useRef(null);
 
     const minioBaseUrl = 'https://minio-api.server.kevinb.run/portfolio-projects/';
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
     const getProjects = () => {
         setLoadingProjects(true);
-        fetch('http://hortools.server.kevinb.run/api/projects')
+        fetch(`${baseUrl}projects`)
             .then(res => {
                 if (!res.ok) throw new Error(`Erreur réseau : ${res.status}`);
                 return res.json();
@@ -25,7 +27,15 @@ export default function ProjectsPage() {
             .then(json => {
                 setData(json);
             })
-            .catch(err => setError(err))
+            .catch((err) =>
+            {
+                if (count < 3) {
+                    setCount(count + 1);
+                    getProjects()
+                } else {
+                    setError(err);
+                }
+            })
             .finally(() => setLoadingProjects(false));
     };
 
@@ -72,19 +82,19 @@ export default function ProjectsPage() {
             <BackButton />
             <h1 className="text-8xl text-center border-b-4 border-black py-4">Projects</h1>
 
-            <div className="w-full grid grid-flow-col lg:grid-cols-3 place-items-center h-full overflow-y-scroll py-10 gap-6">
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center h-full overflow-y-scroll py-10 gap-6 pb-32 lg:pb-0">
                 {data?.projects?.map(proj => (
                     <div
                         key={proj.id}
-                        className="w-10/12 flex flex-col gap-5 border-b-2 border-r-2 py-4 px-6 border-black"
+                        className="w-10/12 md:w-2/3 lg:w-11/12 flex flex-col gap-5 border-b-2 border-r-2 py-4 px-6 border-black"
                     >
                         <img src={minioBaseUrl + proj.image.url} alt={proj.name} className="w-2/3 mx-auto" />
                         <h2 className="text-center text-4xl">{proj.name}</h2>
                         <button
                             onClick={() => openProjectModal(proj.id)}
-                            className="border-b-2 border-r-2 border-black mx-auto w-1/2 block text-center"
+                            className="border-b-2 border-r-2 border-black mx-auto w-1/2 block text-center cursor-pointer"
                         >
-                            See More ...
+                            Voir plus ...
                         </button>
                     </div>
                 ))}
@@ -93,7 +103,7 @@ export default function ProjectsPage() {
             {isModalOpen && (
                 <dialog
                     ref={dialogRef}
-                    className="p-6 flex flex-col flex-nowrap gap-5 border border-black w-11/12 mx-auto border-b-2 border-r-2"
+                    className="p-6 flex flex-col flex-nowrap gap-5 border border-black w-11/12 md:w-8/12  mx-auto border-b-2 border-r-2"
                 >
                     {loadingProject && <p> <Icon icon={"streamline-ultimate:loading"} /> loading...</p>}
 
@@ -105,6 +115,7 @@ export default function ProjectsPage() {
                                 <img
                                     src={minioBaseUrl + project.image[0].url}
                                     alt={project.project.name}
+                                    loading="lazy"
                                     className="mx-auto mb-4 max-h-96 object-contain"
                                 />
                             )}
@@ -120,23 +131,34 @@ export default function ProjectsPage() {
                                             key={index}
                                             src={minioBaseUrl + gallery.url}
                                             alt={gallery.name}
+                                            loading="lazy"
                                             className="w-10/12"
                                         />
                                     ))}
                                 </div>
                             )}
 
-                            <Link
-                                href={project.project.link}
-                                target="_blank"
-                                className="w-10/12 mx-auto border-t-2 border-l-2 border-black px-4 py-2 flex flex-row flex-nowrap items-center justify-between"
-                            >
-                                Website <Icon icon="nrk:link" />
-                            </Link>
+                            {project.technos && (
+                                <div className="grid grid-cols-3 gap-6 md:gap-8 mx-auto">
+                                    {project.technos.map((tech, index) => (
+                                        <Icon key={index} icon={tech.icon} width="40" />
+                                    ))}
+                                </div>
+                            )}
+
+                            { project.project.link.length > 0 && (
+                                <Link
+                                    href={project.project.link}
+                                    target="_blank"
+                                    className="w-10/12 mx-auto border-t-2 border-l-2 border-black px-4 py-2 flex flex-row flex-nowrap items-center justify-between"
+                                >
+                                    Website <Icon icon="nrk:link" />
+                                </Link>
+                            )}
 
                             <button
                                 onClick={() => closeModal()}
-                                className="block w-10/12 mx-auto border-b-2 border-r-2 border-black px-4 py-2 hover:bg-gray-200"
+                                className="block w-10/12 mx-auto border-b-2 border-r-2 border-black px-4 py-2 cursor-pointer"
                             >
                                 Fermer
                             </button>

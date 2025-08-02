@@ -3,7 +3,6 @@
 import BackgroundDetails from "@/app/components/about/BackgroundDetails";
 import {useState} from "react";
 import BackgroundButton from "@/app/components/about/BackgroundButton";
-import {Icon} from "@iconify/react";
 
 
 

@@ -1,5 +1,4 @@
-import BackgroundDetails from "@/app/components/about/BackgroundDetails";
-import BackgroundButton from "@/app/components/about/BackgroundButton";
+
 
 const interest = () => {
     return (

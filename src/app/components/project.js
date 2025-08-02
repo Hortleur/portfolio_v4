@@ -12,7 +12,6 @@ export default function Project({project}) {
 
     const minioBaseUrl = "https://minio-api.server.kevinb.run/portfolio-projects/"
 
-    console.log(project)
     return(
         <div className={" w-full h-full grid grid-cols-1 gap-20"}>
             <h2 className={"text-4xl text-center underline"}>{project.project.name}</h2>
