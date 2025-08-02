@@ -12,6 +12,7 @@ export default function contactPage() {
     const [mailData, setMailData] = useState(null)
 
     const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const token = process.env.NEXT_PUBLIC_TOKEN;
 
     const sendMail = (e) => {
         const email = e.get("email")
@@ -30,7 +31,7 @@ export default function contactPage() {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer oat_Mg.dUN3UWpMbkx6eDVrVlhxNjd4T3NjSkJFSjd0OGVReDBmOTZSNExOQTM4MDU1MjY5NzY"
+                "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify(data)
         })
