@@ -41,7 +41,7 @@ export default function ProjectsPage() {
 
     const openProjectModal = (id) => {
         setLoadingProject(true);
-        fetch(`http://hortools.server.kevinb.run/api/projects/${id}`)
+        fetch(`${baseUrl}projects/${id}`)
             .then(res => {
                 if (!res.ok) throw new Error(`Erreur réseau : ${res.status}`);
                 return res.json();
