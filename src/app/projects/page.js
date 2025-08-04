@@ -146,7 +146,7 @@ export default function ProjectsPage() {
                                 </div>
                             )}
 
-                            { project.project.link.length > 0 && (
+                            { project.project.link !== "#" && (
                                 <Link
                                     href={project.project.link}
                                     target="_blank"
