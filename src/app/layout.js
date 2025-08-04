@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
         {children}
         <MobileNav />
         <Script
-            src="http://umami.server.kevinb.run/umami.js"
+            src="https://umami.server.kevinb.run/umami.js"
             strategy="afterInteractive" // Charge après le premier rendu interactif
             async
             defer
