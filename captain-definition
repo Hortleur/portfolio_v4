@@ -2,7 +2,8 @@
   "schemaVersion": 2,
   "dockerfileLines": [
     "FROM php:8.2-apache",
-    "COPY ./build /var/www/html",
+    "COPY ./public /var/www/html",
+    "RUN echo 'ServerName localhost' > /etc/apache2/conf-available/fqdn.conf && a2enconf fqdn",
     "RUN chmod -R 755 /var/www/html",
     "EXPOSE 80"
   ]
