@@ -1,4 +1,4 @@
-
+'use client'
 import {useState} from "react";
 import BackButton from "@/app/components/BackButton";
 import Whoami from "@/app/components/about/whoami";

@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef, useState } from 'react';
 import BackButton from '@/app/components/BackButton';
 import Link from 'next/link';
