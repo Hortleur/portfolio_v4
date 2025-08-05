@@ -1,11 +1,9 @@
 {
   "schemaVersion": 2,
   "dockerfileLines": [
-    "FROM node:20-alpine",
-    "WORKDIR /usr/src/app",
-    "COPY . .",
-    "RUN npm install",
-    "RUN npm run build",
-    "CMD [\"npm\", \"start\"]"
+    "FROM php:8.2-apache",
+    "COPY ./build /var/www/html",
+    "RUN chmod -R 755 /var/www/html",
+    "EXPOSE 80"
   ]
 }
