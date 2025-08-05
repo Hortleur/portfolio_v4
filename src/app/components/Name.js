@@ -1,4 +1,4 @@
-'use client'
+
 export default function Name({name}) {
     return (
         <div data-testid="name-comp" className="grid place-items-center lg:row-start-2 lg:row-end-3 lg:col-start-2 lg:col-end-3 w-full h-dvh lg:h-full">

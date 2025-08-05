@@ -1,4 +1,3 @@
-'use client'
 
 import BackgroundDetails from "@/app/components/about/BackgroundDetails";
 import {useState} from "react";
