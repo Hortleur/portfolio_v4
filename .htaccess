@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Servir les fichiers et dossiers tels quels s'ils existent
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Rediriger /foo vers /foo.html s'il existe
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^([^/]+)$ $1.html [L]
+
+  # Rediriger les sous-pages profondes vers leur fichier html
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+  RewriteRule ^(.+)/$ $1/index.html [L]
+
+  # Fallback ultime sur index.html (pour un fonctionnement SPA possible)
+  RewriteRule ^.*$ /index.html [L]
+</IfModule>
+
