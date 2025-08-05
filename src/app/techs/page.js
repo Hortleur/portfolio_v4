@@ -3,6 +3,7 @@
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import BackButton from "@/app/components/BackButton";
 
 export default function TechsPage() {
 
@@ -53,18 +54,24 @@ export default function TechsPage() {
     }
 
     return (
-        <main className="pt-4 pb-32 lg:h-screen lg:pb-0 w-screen gap-5 grid place-items-center grid-cols-2 md:grid-cols-3 lg:grid-cols-5 grid-flow-row">
-            <Link href="/" className="hidden lg:block lg:top-5 lg:left-5 border-b-2 border-r-2 px-4 py-5 z-20">Back</Link>
-            {data && data.technos && data.technos.map((tech, index) => (
-                <div
-                    key={index}
-                    onMouseEnter={() => defineRandomBorders()}
-                    className={`h-full w-full flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 hover:scale-110 transition-all ${border} hover:shadow-inner `}
-                >
-                    <Icon icon={tech.icon} className="text-6xl" />
-                    <p className="text-2xl">{tech.name}</p>
-                </div>
-            ))}
+        <main className=" pb-32 lg:h-screen lg:pb-0  w-screen overflow-x-hidden relative">
+            <BackButton />
+            <div className="border-b-4 border-black py-4 w-full mb-10">
+                <h1 className="text-center text-8xl">Technos</h1>
+            </div>
+            <div className="grid place-items-center grid-cols-2 md:grid-cols-3 lg:grid-cols-5 grid-flow-row gap-5 lg:mb-10">
+                {data && data.technos && data.technos.map((tech, index) => (
+                    <div
+                        key={index}
+                        onMouseEnter={() => defineRandomBorders()}
+                        className={`h-full w-full flex flex-col justify-center items-center lg:grayscale hover:grayscale-0 hover:scale-110 transition-all ${border} hover:shadow-inner `}
+                    >
+                        <Icon icon={tech.icon} className="text-6xl" />
+                        <p className="text-2xl">{tech.name}</p>
+                    </div>
+                ))}
+            </div>
+
         </main>
     );
 }

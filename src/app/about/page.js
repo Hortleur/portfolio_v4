@@ -16,20 +16,20 @@ export default function AboutPage() {
     }
 
     return (
-        <main className={ "w-screen lg:h-dvh overflow-hidden relative"}>
+        <main className={ "w-screen lg:h-full overflow-x-hidden relative"}>
             <BackButton />
-            <div className="border-b-4 border-black">
+            <div className="border-b-4 border-black py-4">
                 <h1 className="text-center text-8xl">À propos</h1>
             </div>
-            <div className="lg:hidden ">
+            <div className="lg:hidden h-fit md:h-full">
                 <div className="flex flex-row flex-nowrap">
                     <button className={`border-r-2 border-b-2 px-4 py-5 w-2/3 titles ${
                         activeSection === "who" ? "bg-black text-white transition-all" : ""
                     }`} onClick={() => setSection("who")}>Qui suis je ?</button>
-                    <button className={`border-r-2 border-b-2 px-4 py-5 w-2/3 titles cursor-pointer hover:scale-125 transition-all hover:border-2 hover:shadow-inner ${
+                    <button className={`border-r-2 border-b-2 px-4 py-5 w-2/3 titles  ${
                         activeSection === "background" ? "bg-black text-white transition-all" : ""
                     }`} onClick={() => setSection("background")}>Parcours</button>
-                    <button className={`border-r-2 border-b-2 px-4 py-5 w-2/3 titles cursor-pointer hover:scale-125 transition-all hover:border-2 hover:shadow-inner ${
+                    <button className={`border-r-2 border-b-2 px-4 py-5 w-2/3 titles  ${
                         activeSection === "interest" ? "bg-black text-white" : ""
                     }`} onClick={() => setSection("interest")}>Intérêts</button>
                 </div>
@@ -39,7 +39,7 @@ export default function AboutPage() {
             </div>
 
             <div className="hidden lg:grid grid-cols-4 min-h-full">
-                <aside className=" border-r-2 col-span-1 border-black flex flex-col items-center justify-center gap-20 ">
+                <aside className=" border-r-2 col-span-1 border-black flex flex-col items-center justify-center gap-20 h-dvh">
                     <button className={`border-r-2 border-b-2 px-4 py-5 w-2/3 cursor-pointer hover:scale-125 transition-all hover:border-2 hover:shadow-inner ${
                         activeSection === "who" ? "bg-black text-white" : ""
                     }`} onClick={() => setSection("who")}>Qui suis je ?</button>

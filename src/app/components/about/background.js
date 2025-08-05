@@ -42,7 +42,7 @@ const background = () => {
 
 
     return (
-        <main className="h-full w-full overflow-y-scroll pb-28 lg:pb-0">
+        <main className="h-fit w-full pb-28 lg:pb-0">
             <h2 className="text-4xl text-center my-5">Parcours</h2>
             <div className="h-full w-full lg:hidden flex flex-col items-center justify-around">
                 { items.map((item, index) => (
@@ -57,7 +57,7 @@ const background = () => {
                     <BackgroundButton name="Hôpital" classes="border-r-2" itemId={2} define={() => defineItem(2)} definedItemId={item}/>
                     <BackgroundButton name="Développement web" classes="" itemId={3} define={() => defineItem(3)} definedItemId={item}/>
                 </div>
-                <p className={"text-center my-20 w-10/12 mx-auto"}>{text}</p>
+                <p className={"text-center my-20 w-10/12 mx-auto text-2xl"}>{text}</p>
             </div>
         </main>
     )

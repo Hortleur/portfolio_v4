@@ -29,7 +29,7 @@ export default function Home() {
 
         <HomeLink
             target="/about"
-            name="About"
+            name="À Propos"
             classes="lg:row-start-3 lg:row-end-4 lg:col-start-2 lg:col-end-3 border-progress-top-left"
         />
 

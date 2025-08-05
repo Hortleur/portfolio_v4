@@ -82,7 +82,7 @@ export default function ProjectsPage() {
             <BackButton />
             <h1 className="text-8xl text-center border-b-4 border-black py-4">Projects</h1>
 
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center h-full overflow-y-scroll py-10 gap-6 pb-32 lg:pb-0">
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center h-full overflow-y-scroll py-10 gap-6 pb-32 lg:pb-10">
                 {data?.projects?.map(proj => (
                     <div
                         key={proj.id}
@@ -103,8 +103,9 @@ export default function ProjectsPage() {
             {isModalOpen && (
                 <dialog
                     ref={dialogRef}
-                    className="p-6 flex flex-col flex-nowrap gap-5 border border-black w-11/12 md:w-8/12  mx-auto border-b-2 border-r-2"
+                    className="p-6 flex flex-col flex-nowrap gap-5 border border-black w-11/12 md:w-8/12 min-h-[90dvh]  mx-auto border-b-2 border-r-2 relative backdrop:bg-gray-500 backdrop:opacity-90 backdrop-blur-3xl"
                 >
+                    <button className="absolute top-0 right-3 text-xl md:text-2xl lg:text-5xl font-bold cursor-pointer" onClick={() => closeModal()}>X</button>
                     {loadingProject && <p> <Icon icon={"streamline-ultimate:loading"} /> loading...</p>}
 
                     {!loadingProject && project && (
